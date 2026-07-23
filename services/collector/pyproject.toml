@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coned-electricity-collector"
+version = "0.1.0"
+description = "Private Con Edison interval-usage collector for Railway"
+requires-python = ">=3.12"
+dependencies = [
+  "asyncpg>=0.30,<1",
+  "cryptography>=48.0.1,<49",
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "pydantic-settings>=2.7,<3",
+  "pyotp>=2.9,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.0.3,<10",
+  "pytest-asyncio>=1,<2",
+  "ruff>=0.9,<1",
+]
+
+[tool.setuptools.packages.find]
+include = ["coned_collector*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

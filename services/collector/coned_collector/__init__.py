@@ -1,0 +1,1 @@
+"""Con Edison interval collector."""
